@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (1/2) · sf-t3-1779642675702-404</title>
+  <meta name="description" content="sf-t3-1779642675702-404에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://sf-t3-1779642675702-404.maphoshirts.xyz/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* === RESET + BASE === */
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+ html{font-size:100%;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+ body{
+ font-family:'Impact','system-ui',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+ background:#000;
+ color:#fff;
+ line-height:1.1;
+ letter-spacing:0.02em;
+ padding:0;
+ margin:0
+ }
+ img{max-width:100%;height:auto}
+ a{color:inherit;text-decoration:none}
+ ul{list-style:none}
+
+ /* === CUSTOM PROPERTIES === */
+ :root{
+ --primary:#000000;
+ --secondary:#ffffff;
+ --accent:#ff3b00;
+ --accent-dim:#cc2f00;
+ --gap:48px;
+ --pad:72px;
+ --section-gap:120px;
+ --border-w:4px;
+ --font-stack:'Impact','system-ui',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+ }
+
+ /* === TYPOGRAPHY === */
+ h1,h2,h3,h4{font-weight:400;text-transform:uppercase;letter-spacing:-0.03em}
+ h1{font-size:clamp(3rem,10vw,7rem);line-height:.85;margin-bottom:0.2em}
+ h2{font-size:clamp(2.4rem,7vw,5rem);line-height:.9;margin-bottom:0.3em;position:relative}
+ h3{font-size:clamp(1.8rem,4vw,3rem);line-height:1}
+ p{font-family:'system-ui',sans-serif;font-size:1.1rem;line-height:1.4;margin-bottom:1.5rem;max-width:65ch}
+ .display-number{font-size:clamp(4rem,12vw,9rem);line-height:.8;color:var(--accent);font-weight:400}
+
+ /* === UTILITY === */
+ .container{padding:0 var(--pad);max-width:1400px;margin:0 auto}
+ .full-bleed{width:100vw;margin-left:calc(-50vw + 50%);padding-left:var(--pad);padding-right:var(--pad)}
+ .accent-color{color:var(--accent)}
+ .border-box{border:var(--border-w) solid var(--accent);padding:var(--gap);position:relative}
+ .border-box::before{content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border:2px solid var(--secondary);pointer-events:none}
+ .skew{transform:skew(-4deg)}
+ .skew-inner{transform:skew(4deg)}
+ .rotate-neg{transform:rotate(-2deg)}
+ .rotate-pos{transform:rotate(1.5deg)}
+ .gap-section{margin-bottom:var(--section-gap)}
+
+ /* === HEADER / NAV === */
+ header{
+ position:sticky;top:0;z-index:1000;
+ background:var(--primary);
+ border-bottom:var(--border-w) solid var(--accent);
+ padding:12px var(--pad);
+ display:flex;justify-content:space-between;align-items:center;
+ min-height:80px
+ }
+ .logo{
+ font-size:2.2rem;letter-spacing:-0.04em;
+ color:var(--secondary);text-transform:uppercase;
+ display:flex;align-items:center;gap:14px
+ }
+ .logo span{color:var(--accent);font-size:1.8rem}
+ .nav-links{
+ display:flex;gap:var(--gap);
+ font-size:1.3rem;text-transform:uppercase;letter-spacing:0.05em
+ }
+ .nav-links a{position:relative;padding:4px 0}
+ .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform 0.2s}
+ .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+ .hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:none;padding:8px}
+ .hamburger span{display:block;width:36px;height:4px;background:var(--secondary);transition:all 0.3s}
+
+ /* === HERO === */
+ .hero{
+ padding:var(--section-gap) var(--pad) var(--gap);
+ position:relative;overflow:hidden;
+ min-height:70vh;display:flex;flex-direction:column;justify-content:center
+ }
+ .hero::before{
+ content:'';
+ position:absolute;top:-20%;right:-10%;width:60%;height:120%;
+ background:repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,59,0,0.08) 40px, rgba(255,59,0,0.08) 80px);
+ z-index:0;pointer-events:none
+ }
+ .hero-content{position:relative;z-index:1}
+ .hero h1{max-width:15ch;margin-bottom:0.1em}
+ .hero .subhead{
+ font-size:clamp(1.3rem,3vw,2.2rem);
+ display:block;margin-bottom:var(--gap);
+ padding:12px 0;border-top:var(--border-w) solid var(--accent);border-bottom:var(--border-w) solid var(--accent);
+ width:fit-content;max-width:85%
+ }
+ .hero .cta-wrapper{display:flex;gap:var(--gap);flex-wrap:wrap;margin-top:var(--gap)}
+ .cta-brutal{
+ display:inline-block;padding:20px 48px;
+ background:var(--accent);color:var(--primary);
+ font-size:1.6rem;text-transform:uppercase;letter-spacing:0.08em;
+ border:var(--border-w) solid var(--secondary);
+ transition:all 0.15s;cursor:pointer
+ }
+ .cta-brutal:hover{background:var(--secondary);color:var(--accent);border-color:var(--accent);transform:scale(1.02)}
+ .cta-outline{
+ display:inline-block;padding:20px 48px;
+ background:transparent;color:var(--secondary);
+ font-size:1.6rem;text-transform:uppercase;letter-spacing:0.08em;
+ border:var(--border-w) solid var(--secondary);
+ transition:all 0.15s
+ }
+ .cta-outline:hover{background:var(--secondary);color:var(--primary)}
+
+ /* === INTRO === */
+ .intro-grid{
+ display:grid;grid-template-columns:1fr 1.2fr;gap:var(--gap) calc(var(--gap)*2);
+ align-items:start
+ }
+ .intro-grid .border-box{height:fit-content}
+
+ /* === SERVICE BLOCKS === */
+ .services-grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+ gap:var(--gap);
+ margin-top:var(--gap)
+ }
+ .service-card{
+ border:var(--border-w) solid var(--secondary);
+ padding:var(--gap);
+ background:var(--primary);
+ transition:all 0.2s;
+ position:relative;
+ overflow:hidden
+ }
+ .service-card::after{
+ content:'⬡';position:absolute;bottom:12px;right:12px;
+ font-size:3rem;color:var(--accent);opacity:0.15
+ }
+ .service-card:hover{border-color:var(--accent);transform:translateY(-6px)}
+ .service-card h3{font-size:2rem;margin-bottom:20px}
+ .service-card .price-tag{font-size:1.8rem;color:var(--accent);display:block;margin-top:24px}
+
+ /* === REVIEWS === */
+ .reviews-grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:var(--gap)
+ }
+ .review-card{
+ border:var(--border-w) solid var(--secondary);
+ padding:var(--gap) 28px;
+ background:var(--primary);
+ display:flex;flex-direction:column;
+ position:relative
+ }
+ .review-card::before{content:'”';position:absolute;top:-12px;right:16px;font-size:5rem;color:var(--accent);opacity:0.3;line-height:1}
+ .review-card .stars{font-size:1.6rem;letter-spacing:4px;margin-bottom:16px;color:var(--accent)}
+ .review-card blockquote{font-family:'system-ui',sans-serif;font-size:1.05rem;line-height:1.4;flex:1;margin-bottom:20px}
+ .review-card .reviewer{display:flex;justify-content:space-between;font-size:0.95rem;border-top:2px solid var(--accent);padding-top:12px;margin-top:auto}
+ .review-card .reviewer strong{text-transform:uppercase;letter-spacing:0.06em}
+ .review-card .reviewer time{color:#999}
+
+ /* === CTA BANNER === */
+ .cta-banner{
+ background:var(--accent);
+ padding:var(--section-gap) var(--pad);
+ text-align:center;
+ color:var(--primary);
+ border-top:var(--border-w) solid var(--secondary);
+ border-bottom:var(--border-w) solid var(--secondary)
+ }
+ .cta-banner h2{font-size:clamp(2.8rem,8vw,6rem);margin-bottom:12px}
+ .cta-banner .phone-brutal{
+ display:inline-block;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:0.1em;
+ padding:8px 40px;border:var(--border-w) solid var(--primary);
+ margin-top:var(--gap);background:var(--primary);color:var(--secondary);
+ transition:all 0.15s
+ }
+ .cta-banner .phone-brutal:hover{background:var(--accent);color:var(--primary);border-color:var(--secondary)}
+
+ /* === FOOTER === */
+ footer{
+ padding:var(--gap) var(--pad) 32px;
+ border-top:var(--border-w) solid var(--accent);
+ display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;
+ font-size:0.9rem
+ }
+ footer .footer-links{display:flex;gap:24px;text-transform:uppercase;letter-spacing:0.05em}
+ footer .copyright{opacity:0.6;font-family:'system-ui',sans-serif}
+
+ /* === RESPONSIVE (max-width:768px) === */
+ @media(max-width:768px){
+ :root{--pad:24px;--gap:24px;--section-gap:60px}
+ header{padding:10px var(--pad);min-height:64px}
+ .logo{font-size:1.6rem}
+ .logo span{font-size:1.3rem}
+ .nav-links{
+ display:none;
+ position:fixed;top:64px;left:0;right:0;
+ background:var(--primary);border-bottom:var(--border-w) solid var(--accent);
+ flex-direction:column;padding:var(--gap);gap:20px;
+ font-size:1.6rem;z-index:999
+ }
+ .nav-links.active{display:flex}
+ .hamburger{display:flex}
+ .hero{min-height:60vh;padding-top:var(--section-gap)}
+ .hero .subhead{max-width:100%}
+ .hero .cta-wrapper{flex-direction:column}
+ .cta-brutal,.cta-outline{text-align:center;width:100%}
+ .intro-grid{grid-template-columns:1fr}
+ .services-grid{grid-template-columns:1fr}
+ .reviews-grid{grid-template-columns:1fr}
+ .review-card{padding:var(--gap) 16px}
+ footer{flex-direction:column;gap:24px;align-items:start}
+ footer .footer-links{flex-wrap:wrap}
+ .cta-banner{padding:var(--section-gap) var(--pad)}
+ .container{padding:0 var(--pad)}
+ .full-bleed{padding-left:var(--pad);padding-right:var(--pad)}
+ }
+ @media(max-width:480px){
+ .hero h1{font-size:2.8rem}
+ .cta-banner h2{font-size:2rem}
+ }
+
+ /* === ACCESSIBILITY === */
+ @media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+ }
+ .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+ </style>
+  <meta property="og:title" content="글 목록 (1/2) · sf-t3-1779642675702-404">
+  <meta property="og:description" content="sf-t3-1779642675702-404에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://sf-t3-1779642675702-404.maphoshirts.xyz/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="logo">
+ <span>⬡</span> 화곡 셔츠룸 <span style="font-size:1rem;color:#888;margin-left:4px">· 마포 웜업</span>
+ </div>
+ <nav aria-label="메인 내비게이션">
+ <button class="hamburger" aria-label="메뉴 열기" aria-expanded="false" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('active')">
+ 
+ </button>
+ <ul class="nav-links" role="menubar">
+ <li><a href="#hero" role="menuitem">시작</a></li>
+ <li><a href="#intro" role="menuitem">본질</a></li>
+ <li><a href="#services" role="menuitem">서비스</a></li>
+ <li><a href="#reviews" role="menuitem">리뷰</a></li>
+ 
+ </ul>
+ </nav>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 33개 · 1/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0099.html">화곡 셔츠룸 방문자를 위한 마포 럭셔리 단체 가라오케 예약 가이드 안내</a>
+        <p class="post-item__summary">성공적인 모임을 위해서는 인원 구성에 따른 공간 확보와 서비스 만족도가 가장 먼저 충족되어야 합니다. 특히 화곡 셔츠룸 혹은 마포 지역에서 VIP 단체 모임을 기획할 때는 인원별로 적합한 룸 타입이</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0100.html">화곡 셔츠룸 마케팅을 위한 정보 페이지</a>
+        <p class="post-item__summary">귀하의 디지털 자산은 현재 어떤 상태의 콘텐츠 급수 정화 과정을 거치고 있습니까? 많은 운영자가 화곡 셔츠룸 홍보를 위해 다양한 시도를 하지만, 가장 근본적인 백링크 품질 문제를 간과하곤 합니다. </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0101.html">화곡 셔츠룸 방문객을 위한 웹사이트 구글 봇 정밀 검진 및 크롤 버짓 밀착 간호 가이드</a>
+        <p class="post-item__summary">화곡 셔츠룸 정보 플랫폼을 운영하며 검색 엔진의 신뢰도를 높이는 일은 매우 중요한 과정입니다. 특히 구글 봇이 사이트의 콘텐츠를 얼마나 효율적으로 수집하는지에 따라 노출 순위가 결정됩니다. 이를 위</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0102.html">화곡 셔츠룸 마케팅 효율을 높이는 4</a>
+        <p class="post-item__summary">화곡 셔츠룸 사업 운영 시 디지털 마케팅의 비중이 커지면서 기술적 자립이 중요해지고 있습니다. 이를 위해 최근 주목받는 4-에이전트 루프 자동화 프로그램 코딩 스쿨 교육 과정은 매우 매력적인 대안입</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0103.html">화곡 셔츠룸 검색 엔진 점유를 위한 구글 알고리즘 감점 치료 및 백링크 수술실 활용법</a>
+        <p class="post-item__summary">화곡 셔츠룸 서비스가 검색 엔진에서 갑자기 사라지는 현상은 대개 부적절한 연결 고리 때문입니다. 많은 운영자가 검색엔진 응급수술이 필요한 상황임을 인지하지 못한 채 잘못된 대응을 반복합니다. 전문적</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0104.html">화곡 셔츠룸 방문 전 체크리스트와 도메인 지수 탈모 방지 및 앵커 텍스트 이식 가이드</a>
+        <p class="post-item__summary">특정 목적을 가지고 방문하는 화곡 셔츠룸은 접근성이 매우 중요한 요소 중 하나입니다. 지리적 위치가 방문객의 피로도를 결정짓고, 이는 곧 경험의 질로 직결되기 때문입니다. 디지털 영역에서 웹사이트의</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0105.html">화곡 셔츠룸 방문 전 알아야 할 동대문 풋쌤 마사지 이용 수칙</a>
+        <p class="post-item__summary">번화가를 걷다 보면 생소한 간판을 마주할 때가 있는데 화곡 셔츠룸 정보를 찾던 이들이 동대문 인근에서 당황하는 경우가 많습니다. 특히 처음 방문하는 지역에서는 정확한 위치 정보가 없으면 시간을 허비</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0106.html">화곡 셔츠룸 검색보다 중요한 구글 알고리즘 고신용 도메인 보증 카드 발급</a>
+        <p class="post-item__summary">웹사이트 운영자들 사이에서는 흔히 도메인 연령이 높으면 무조건 검색 상위에 노출된다는 오해가 퍼져 있습니다. 단순히 오래되었다고 해서 좋은 점수를 받는 것이 아니라 도메인의 신용도와 실질적인 트래픽</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0107.html">화곡 셔츠룸 비교 전 확인하는 마포 홍대 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">성공적인 모임을 계획하기 위해서는 적절한 장소 선택과 예약 가능 여부, 그리고 인원 수용 능력이 필수 충족 조건입니다. 많은 인원이 이동하는 경우 동선이 복잡하지 않은 곳을 고르는 것이 중요합니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0108.html">화곡 셔츠룸 대안으로 찾는 마포 단체 회식용 대형 룸 노래방 가격 정보</a>
+        <p class="post-item__summary">직장 동료들과 뜻깊은 시간을 보내기 위해 적합한 장소를 찾고 계십니까. 화곡 셔츠룸 정보에 익숙하신 분들이라도 마포 지역의 회식 문화를 이해하는 것은 또 다른 즐거움입니다. 과연 어떤 기준으로 업체</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0109.html">화곡 셔츠룸 정보를 통해 알아보는 마포/합정 인디 소셜 라운지 가이드와 프라이빗 파티 구성법</a>
+        <p class="post-item__summary">유흥 관련 정보를 탐색하다 보면 화곡 셔츠룸과 같이 특정 지역의 업소를 언급하는 경우가 많습니다. 하지만 이러한 정보가 반드시 객관적인 기준을 갖추었다고 보기는 어렵기에 신뢰도를 판별하는 과정이 필</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0110.html">화곡 셔츠룸 검색과 비교하며 살펴보는 셔츠룸 예약 및 셔츠룸 이용을 위한 가격 판단 기준</a>
+        <p class="post-item__summary">흔히 화곡 셔츠룸과 같은 정보를 찾을 때 이용객들은 효율적인 선택을 고민하게 됩니다. 셔츠룸 서비스를 이용할 때 흔히 마주하는 두 가지 선택지는 정찰제 시스템과 탄력적 요금제입니다. 각 방식은 장단</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0111.html">화곡 셔츠룸 정보 공유를 통해 짚어보는 마포 홍대 로컬 럭셔리 밤문화 가이드 예약 실패 원인 분석</a>
+        <p class="post-item__summary">많은 이들이 화곡 셔츠룸 정보를 바탕으로 밤문화 경험을 시도하다가 계획에 실패하는 경우가 적지 않습니다. 대표적인 실패 지점은 업소의 실제 운영 시간과 예약 프로세스를 정확히 숙지하지 않는 것입니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0112.html">화곡 셔츠룸 이용자가 알아야 할 합정 셔츠룸 단골들이 뽑은 핫플 매거진과 위치 접근성 체크리스트</a>
+        <p class="post-item__summary">최근 화곡 셔츠룸 관련 수요와 함께 합정 인근의 트렌디한 공간들에 대한 관심도 급증하고 있습니다. 훌륭한 장소를 찾기 위해서는 단골들의 평가가 담긴 자료를 확인하는 것이 매우 유용합니다. 특히 처음</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0113.html">화곡 셔츠룸 방문 전 필수 체크 마포 유흥 투명 정찰제 가격 정보 디렉토리</a>
+        <p class="post-item__summary">낯선 유흥 업소를 방문했을 때 예상치 못한 추가 비용으로 당황하는 경우가 종종 발생합니다. 특히 화곡 셔츠룸 같은 곳을 처음 찾는 분들은 현장의 복잡한 결제 체계 때문에 불필요한 지출을 겪곤 합니다</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0114.html">화곡 셔츠룸 이용 시 오해와 진실 및 합리적 시간 선택 셔츠룸 사이트</a>
+        <p class="post-item__summary">많은 분이 화곡 셔츠룸 서비스가 오직 밤늦은 시간에만 운영된다고 생각하는 경향이 있습니다. 그러나 이는 유흥 서비스의 다양성을 간과한 일반적인 오해 중 하나입니다. 실제로는 이른 저녁 시간대부터 운</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0115.html">화곡 셔츠룸 방문 인원 구성에 따른 마포 셔츠룸 예약 시 눈탱이 피하는 법</a>
+        <p class="post-item__summary">단체 방문이나 소수 인원 구성 등 모임의 성격에 따라 서비스 예약 전략은 달라져야 합니다. 화곡 셔츠룸을 이용할 때 인원이 많아질수록 가격 구조를 명확히 하지 않으면 분쟁의 소지가 생깁니다. 인원수</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0116.html">화곡 셔츠룸과 비교되는 마포 코인노래방 방음 시설 비교 가이드 활용법</a>
+        <p class="post-item__summary">일상적인 여가 시간을 보낼 때 주변 방음 시설의 상태가 얼마나 중요한지 고민해 본 적 있으신가요. 화곡 셔츠룸 방문객들이 즐겨 찾는 인근 노래 시설들은 저마다의 방음 수준을 갖추고 있습니다. 시설의</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0117.html">화곡 셔츠룸 방문객을 위한 구글 인덱싱 속도 초고속 광회선 대역폭 최적화 기술</a>
+        <p class="post-item__summary">화곡 셔츠룸 관련 정보를 찾는 사용자들에게 디지털 데이터의 흐름은 매우 중요한 요소입니다. 특히 방대한 양의 정보를 적시에 전달하기 위해서는 네트워크 대역폭의 확보가 필수적입니다. 데이터 병목 현상</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0118.html">화곡 셔츠룸 소비자를 위한 마포 셔츠룸 리얼 후기 소셜 마케팅 가이드 전략</a>
+        <p class="post-item__summary">화곡 셔츠룸 정보를 탐색하는 이용자들은 종종 과장된 홍보 문구로 인해 혼란을 겪습니다. 투명한 정보를 얻기 위해 최근 주목받는 방식은 전문가의 분석을 거친 가이드를 참고하는 것입니다. 올바른 결정을</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <span class="pager__current">1</span>
+      <a class="pager__link" href="posts-2.html">2</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
